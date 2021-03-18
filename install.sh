@@ -4,7 +4,7 @@ if [ ! -f .env.local ]; then
     echo "APP_SECRET=$(openssl rand -hex 32)" >> .env.local
 fi
 if [ ! -f templates/my.html.twig ]; then
-    echo "{% include 'base.html.twig' %}" > templates/my.html.twig
+    echo "{% extends 'base.html.twig' %}" > templates/my.html.twig
 fi
 mkdir -p var/maintenance
 composer install --no-dev --optimize-autoloader
