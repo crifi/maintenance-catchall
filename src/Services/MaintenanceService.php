@@ -53,7 +53,7 @@ class MaintenanceService
         $serializer = new Serializer($normalizers, $encoders);
         $finder = new Finder();
         $path = $this->kernel->getProjectDir() . '/var/maintenance';
-        $finder->files()->in($path);
+        $finder->files()->in($path)->sortByName();
         $data = [];
         foreach ($finder as $file) {
             $array = $serializer->deserialize($file->getContents(), 'App\Entity\Maintenance[]', 'json');
