@@ -26,12 +26,20 @@ class MainController extends AbstractController
      */
     public function maintenance(Request $request, MaintenanceService $maintenanceService): Response
     {
-        $response = $maintenanceService->getResponse($request->getHost());
-        return $this->render(
-            'my.html.twig', [
-                'response' => $response,
-            ],
-            (new Response())->setStatusCode($response->getHttpStatuscode())
+        $maintenance = $maintenanceService->getResponse($request->getHost());
+        $response = $this->render(
+            'my.html.twig',
+            [
+                'response' => $maintenance,
+            ]
         );
+        $response->setStatusCode($maintenance->getHttpStatuscode());
+        $response->setCache([
+            'must_revalidate' => true,
+            'no_cache' => true,
+            'no_store' => true,
+            'max_age' => 0,
+        ]);
+        return $response;
     }
 }
