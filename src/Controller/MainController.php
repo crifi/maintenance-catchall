@@ -16,7 +16,8 @@ class MainController extends AbstractController
      * @Route(
      *     "/{req}",
      *     name="maintenance",
-     *     requirements={"req"="^(.)*$"}
+     *     requirements={"req"="^(.)*$"},
+     *     priority=-1
      * )
      *
      * @param Request $request
