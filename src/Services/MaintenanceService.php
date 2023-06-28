@@ -15,7 +15,7 @@ class MaintenanceService
     /**
      * @var KernelInterface $kernel
      */
-    private $kernel;
+    private KernelInterface $kernel;
 
     /**
      * MaintenanceService constructor.
@@ -27,15 +27,19 @@ class MaintenanceService
     }
 
     /**
+     * @param string|null $backend_name
      * @param string $host
      * @return Maintenance
      */
-    public function getResponse(string $host): Maintenance
+    public function getResponse(?string $backend_name, string $host): Maintenance
     {
         $maintenances = $this->loadMaintenances();
         /** @var Maintenance $maintenance */
         foreach ($maintenances as $maintenance) {
-            if (preg_match($maintenance->getHost(), $host)) {
+            if (
+                ($maintenance->getBackendName() !== null && $backend_name !== null && preg_match($maintenance->getBackendName(), $backend_name))
+                || ($maintenance->getHost() !== null && preg_match($maintenance->getHost(), $host))
+            ) {
                 return $maintenance;
             }
         }

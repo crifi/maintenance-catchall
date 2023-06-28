@@ -6,26 +6,38 @@ namespace App\Entity;
 
 class Maintenance
 {
-    private $host = '/.*/';
+    private ?string $host = null;
 
-    private $title = 'Maintenance';
+    private ?string $backend_name = null;
 
-    private $httpStatuscode = 503;
+    private string $title = 'Maintenance';
 
-    private $text = 'Sorry, we are currently under maintenance';
+    private int $httpStatuscode = 503;
 
-    public function getHost(): string
+    private string $text = 'Sorry, we are currently under maintenance';
+
+    public function getHost(): ?string
     {
         return $this->host;
     }
 
-    public function setHost(string $host): Maintenance
+    public function setHost(?string $host): Maintenance
     {
         $this->host = $host;
         return $this;
     }
 
-    public function getTitle()
+    public function getBackendName(): ?string
+    {
+        return $this->backend_name;
+    }
+
+    public function setBackendName(?string $backend_name): void
+    {
+        $this->backend_name = $backend_name;
+    }
+
+    public function getTitle(): string
     {
         return $this->title;
     }

@@ -26,7 +26,10 @@ class MainController extends AbstractController
      */
     public function maintenance(Request $request, MaintenanceService $maintenanceService): Response
     {
-        $maintenance = $maintenanceService->getResponse($request->getHost());
+        $maintenance = $maintenanceService->getResponse(
+            $request->headers->get('X-Backend-Name'),
+            $request->getHost()
+        );
         $response = $this->render(
             'my.html.twig',
             [
