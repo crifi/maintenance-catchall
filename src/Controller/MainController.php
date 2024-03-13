@@ -6,24 +6,18 @@ use App\Services\MaintenanceService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class MainController extends AbstractController
 {
     /**
      * Wildcard controller for all incoming requests
      *
-     * @Route(
-     *     "/{req}",
-     *     name="maintenance",
-     *     requirements={"req"="^(.)*$"},
-     *     priority=-1
-     * )
-     *
      * @param Request $request
      * @param MaintenanceService $maintenanceService
      * @return Response
      */
+    #[Route('/{req}', name: 'maintenance', requirements: ['req' => '^(.)*$'], priority: 1)]
     public function maintenance(Request $request, MaintenanceService $maintenanceService): Response
     {
         $maintenance = $maintenanceService->getResponse(
