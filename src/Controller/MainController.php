@@ -17,7 +17,7 @@ class MainController extends AbstractController
      * @param MaintenanceService $maintenanceService
      * @return Response
      */
-    #[Route('/{req}', name: 'maintenance', requirements: ['req' => '^(.)*$'], priority: 1)]
+    #[Route('/{req}', name: 'maintenance', requirements: ['req' => '^([^_].*)$'], priority: 1)]
     public function maintenance(Request $request, MaintenanceService $maintenanceService): Response
     {
         $maintenance = $maintenanceService->getResponse(
