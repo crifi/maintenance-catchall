@@ -9,4 +9,4 @@ fi
 mkdir -p var/maintenance
 composer install --no-dev --optimize-autoloader
 APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
-chown -R www-data:www-data var/cache var/log
+chown -R www-data:www-data var
