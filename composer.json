@@ -8,23 +8,23 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/console": "7.3.*",
-        "symfony/dotenv": "7.3.*",
+        "symfony/console": "7.4.*",
+        "symfony/dotenv": "7.4.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.3.*",
-        "symfony/property-access": "7.3.*",
-        "symfony/runtime": "7.3.*",
-        "symfony/serializer": "7.3.*",
-        "symfony/twig-bundle": "7.3.*",
-        "symfony/yaml": "7.3.*",
+        "symfony/framework-bundle": "7.4.*",
+        "symfony/property-access": "7.4.*",
+        "symfony/runtime": "7.4.*",
+        "symfony/serializer": "7.4.*",
+        "symfony/twig-bundle": "7.4.*",
+        "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "symfony/debug-bundle": "7.3.*",
-        "symfony/stopwatch": "7.3.*",
-        "symfony/var-dumper": "7.3.*",
-        "symfony/web-profiler-bundle": "7.3.*"
+        "symfony/debug-bundle": "7.4.*",
+        "symfony/stopwatch": "7.4.*",
+        "symfony/var-dumper": "7.4.*",
+        "symfony/web-profiler-bundle": "7.4.*"
     },
     "config": {
         "optimize-autoloader": true,
@@ -70,7 +70,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.3.*"
+            "require": "7.4.*"
         }
     }
 }
